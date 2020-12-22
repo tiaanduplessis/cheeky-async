@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "prebuild": "yarn docs",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "docs": "documentation readme src/*.ts --parse-extension ts -q -s API"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "cheeky-async",
+  "description": " Some cheeky async versions of Array methods like map, filter and reduce. With support for sequential and parallel processing.",
+  "author": "Tiaan du Plessis <tiaanduplessis@hotmail.com>",
+  "module": "dist/cheeky-async.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/cheeky-async.cjs.production.min.js",
+      "limit": "3 KB"
+    },
+    {
+      "path": "dist/cheeky-async.esm.js",
+      "limit": "3 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "documentation": "^13.1.0",
+    "husky": "^4.3.6",
+    "size-limit": "^4.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.3"
+  }
+}
